@@ -1,0 +1,7 @@
+:root {
+    --completed: line-through;
+}
+
+.is-completed {
+    text-decoration: var(--completed);
+}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from './app/store'
-import { add, complete } from './features/todo/todoSlice'
+import { add, complete, remove } from './features/todo/todoSlice'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -21,7 +21,7 @@ const App = () => {
             }} >Add</button>
             <ul>
                 {todos && todos.map(({ text, done, id }, idx) => (
-                    <li key={idx}>{text} <button onClick={() => dispatch(complete(id))}>Complete</button></li>
+                    <li className={done ? 'is-completed' : ''} key={idx}>{text} <button onClick={() => { remove(id) }}> ➖ </button> <button onClick={() => dispatch(complete(id))}>Complete</button></li>
                 ))}
             </ul>
         </div>
